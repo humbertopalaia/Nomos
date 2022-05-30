@@ -1,0 +1,51 @@
+﻿@model Nomos.Models.Menu.MenuViewModel
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-custom" style="background-color:darkgreen">
+    <a class="navbar-brand" href="#"><img src="~/images/Logo64.png" /></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+                <a class="nav-link" href="#">Link</a>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Dropdown
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="#">Action</a>
+                    <a class="dropdown-item" href="#">Another action</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="#">Something else here</a>
+                </div>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link disabled" href="#">Disabled</a>
+            </li>
+        </ul>
+        <form class="form">
+            <div class="row">
+                <div class="col-xs-2 mr-2">
+
+                    @*@if (Model.IsAdmin)
+                    {
+                        @Html.DropDownListFor(model => model.EmpresaId, Model.Empresas, new { @id = "empresa", @class = "form-control input-sm", @style = "width:100%;" })
+                    }*@
+                </div>
+                <div class="col-xs-2 mr-2">
+                    <button id="btn-logoff" onclick="logoffClick()" type="button" class="btn btn-outline-success" aria-label="Left Align">@Model.NomeUsuario <span class="fa fa-sign-out-alt fa-lg" aria-hidden="true"></span></button>
+                </div>
+            </div>
+        </form>
+    </div>
+</nav>
+
+<script src="~/js/Menu/Default.js"></script>
+
+<script>
+    var urlLogoff = encodeURI('@Url.Action("EfetuarLogoff", "Login")');
+    var urlAlterarEmpresa = encodeURI('@Url.Action("AlterarEmpresaSelecionada", "Menu")');
+</script>

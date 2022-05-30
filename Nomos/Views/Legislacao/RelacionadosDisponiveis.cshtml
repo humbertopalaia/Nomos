@@ -1,0 +1,25 @@
+﻿@model List<Nomos.Models.Legislacao.LegislacaoListViewModel>
+
+<div class="col-sm-5 table-wrapper-scroll-y table-scrollbar">
+
+    <table id="table-disponiveis" class="display" cellspacing="0" width="100%">
+
+        <thead class="thead-dark">
+            <tr>
+                <th hidden></th>
+                <th class="text-light font-weight-bold">Legislação</th>
+            </tr>
+        </thead>
+
+        <tbody>
+
+            @foreach (var item in Model)
+            {
+                <tr role="row" class="odd">
+                    <td class="id-legislacao" hidden>@item.Id</td>
+                    <td class="text-info">@item.Codigo  - @item.Titulo</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

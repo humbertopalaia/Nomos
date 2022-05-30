@@ -1,0 +1,108 @@
+﻿@model Nomos.Models.Legislacao.LegislacaoNewViewModel
+
+@{
+    ViewData["Title"] = "Legislação - Inclusão";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+@section styles{
+    <link rel="Stylesheet" href="@Href("~/css/Legislacao/New.css")" />
+}
+
+<h3>Legislação</h3>
+<hr />
+<div class="form-group">
+    <div class="row">
+        <div class="col-sm-12">
+            <button id="btn-salvar" onclick="salvarclick()" type="button" class="btn btn-primary" aria-label="Left Align">Salvar <span class="fa fa-save fa-lg" aria-hidden="true"></span></button>
+            <button id="btn-cancelar" onclick="cancelarclick()" type="button" class="btn btn-warning" aria-label="Left Align">Cancelar <span class="fa fa-times fa-lg" aria-hidden="true"></span></button>
+        </div>
+    </div>
+</div>
+<div class="card">
+    <div class="card-body">
+        <div class="form-group">
+
+            <div class="row">
+                <div class="col-sm-2">
+                    <label>Código</label>
+                    <input id="codigo" class="form-control" type="text" maxlength="50" />
+                </div>
+                <div class="col-sm-6">
+                    <label>Título</label>
+                    <input id="titulo" class="form-control" type="text" maxlength="100" />
+                </div>
+                <div class="col-sm-4">
+                    <label>Tipo</label>
+                    @Html.DropDownListFor(model => model.Tipos, Model.Tipos, new { @id = "tipo", @class = "form-control input-sm", @style = "width:100%;" })
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-12">
+                    <label>Descrição</label>
+                    <input id="descricao" class="form-control" type="text" maxlength="500" />
+                </div>
+            </div>
+
+
+            <div class="row">
+
+                <div class="col-sm-2">
+                    <label>Categoria</label>
+                    @Html.DropDownListFor(model => model.Categorias, Model.Categorias, new { @id = "categoria", @class = "form-control input-sm", @style = "width:100%;" })
+                </div>
+
+                <div class="col-sm-2">
+                    <label>Data Publicação</label>
+                    <input id="dataPublicacao" class="form-control" type="text" />
+                </div>
+
+                <div class="col-sm-2">
+                    <label>Data Início Vigência</label>
+                    <input id="dataInicioVigencia" class="form-control" type="text" />
+                </div>
+
+                <div class="col-sm-4">
+                    <label>Orgão</label>
+                    @Html.DropDownListFor(model => model.Orgaos, Model.Orgaos, new { @id = "orgao", @class = "form-control input-sm", @style = "width:100%;" })
+                </div>
+
+
+                <div class="col-sm-2">
+                    <label>Situação</label>
+                    @Html.DropDownListFor(model => model.Situacoes, Model.Situacoes, new { @id = "situacao", @class = "form-control input-sm", @style = "width:100%;" })
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-12">
+                    <label>Link</label>
+                    <input id="link" class="form-control link-input lower-input" type="text" maxlength="4000" />
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-12">
+                    <label>Observação</label>
+                    <textarea id="observacao" class="form-control" rows="10" maxlength="8000"></textarea>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+<hr />
+<div class="form-group">
+    <div class="row">
+        <div class="col-sm-12">
+            <button id="btn-salvar" onclick="salvarclick()" type="button" class="btn btn-primary" aria-label="Left Align">Salvar <span class="fa fa-save fa-lg" aria-hidden="true"></span></button>
+            <button id="btn-cancelar" onclick="cancelarclick()" type="button" class="btn btn-warning" aria-label="Left Align">Cancelar <span class="fa fa-times fa-lg" aria-hidden="true"></span></button>
+        </div>
+    </div>
+</div>
+<script src="~/js/Legislacao/New.js"></script>
+
+<script>
+    var urlIncluir = encodeURI('@Url.Action("Incluir", "Legislacao")');
+</script>

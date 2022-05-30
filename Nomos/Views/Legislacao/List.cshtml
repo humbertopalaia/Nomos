@@ -1,0 +1,67 @@
+﻿@model List<Nomos.Models.Legislacao.LegislacaoListViewModel>
+
+
+<div class="box">
+    <div class="box-content">
+        @if (Model.Count > 0)
+        {
+            <table id="gridLegislacao" class="table table-bordered table-striped">
+
+                <thead>
+                    <tr>
+                        <th hidden>Id</th>
+                        <th>Código</th>
+                        <th>Título</th>
+                        <th>Data Publicação</th>
+                        <th>Situação</th>
+                        <th>Orgão</th>
+                        <th></th>
+                        <th></th>
+                        <th></th>
+                    </tr>
+                <thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr id="rowId_@item.Id">
+                            <td hidden>@item.Id"</td>
+                            <td>@item.Codigo</td>
+                            <td>@item.Titulo</td>
+                            <td>@item.DataPublicacao</td>
+                            <td>@item.Situacao</td>
+                            <td>@item.Orgao</td>
+                            <td style="text-align:center"><i class="fa fa-fw fa-edit" style="cursor:pointer" onclick="editarClick(@item.Id)"></i></td>
+                            <td style="text-align:center"><i class="fa fa-fw fa-globe" style="cursor:pointer" onclick="abrirUrlClick('@item.Link')"></i></td>
+                            <td style="text-align:center"><i class="fa fa-fw fa-trash" style="cursor:pointer" onclick="excluirClick(@item.Id)"></i></td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        }
+        else
+        {
+            <table>
+                <thead>
+                    <tr>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td style="color:red">Nenhum registro encontrado</td>
+                    </tr>
+                </tbody>
+            </table>
+        }
+
+    </div>
+    <!--end: BOX CONTENT-->
+</div>
+<!--end: BOX-->
+
+<script src="~/js/Legislacao/List.js"></script>
+
+
+<script>
+    var urlExcluir = encodeURI('@Url.Action("Excluir", "Legislacao")');
+</script>

@@ -1,0 +1,56 @@
+﻿@model Nomos.Models.Legislacao.LegislacaoFilterViewModel
+
+<div class="card">
+    <div class="card-body">
+        <div class="form-group">
+
+            <div class="row">
+                <div class="col-sm-4">
+                    <label>Código</label>
+                    <input id="codigo" class="form-control" type="text" maxlength="50" />
+                </div>
+
+                <div class="col-sm-4">
+                    <label>Título</label>
+                    <input id="titulo" class="form-control" type="text" maxlength="50" />
+                </div>
+
+                <div class="col-sm-4">
+                    <label>Categoria</label>
+                    @Html.DropDownListFor(model => model.Categorias, Model.Categorias, new { @id = "categoria", @class = "form-control input-sm", @style = "width:100%;" })
+                </div>
+            </div>
+
+            <div class="row mt-2">
+
+                <div class="col-sm-4">
+                    <label>Data Publicação</label>
+                    <input id="dataPublicacao" class="form-control" type="text" maxlength="50" />
+                </div>
+
+                <div class="col-sm-4">
+                    <label>Orgão</label>
+                    @Html.DropDownListFor(model => model.Orgaos, Model.Orgaos, new { @id = "orgao", @class = "form-control input-sm", @style = "width:100%;" })
+                </div>
+
+                <div class="col-sm-2">
+                    <label>Situação</label>
+                    @Html.DropDownListFor(model => model.Situacoes, Model.Situacoes, new { @id = "situacao", @class = "form-control input-sm", @style = "width:100%;" })
+                </div>
+
+                <div class="col-sm-2 text-right">
+                    <br>
+                    <button id="btn-filtrar" onclick="filtrarClick()" type="button" class="btn btn-primary" aria-label="Left Align">Filtrar <span class="fa fa-search fa-lg" aria-hidden="true"></span></button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<hr />
+
+<script src="~/js/Legislacao/Filter.js"></script>
+
+
+<script>
+    var urlFiltrar = encodeURI('@Url.Action("Filtrar", "Legislacao")');
+</script>

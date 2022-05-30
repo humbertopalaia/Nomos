@@ -1,0 +1,14 @@
+﻿
+input:focus {
+    outline: none;
+}
+
+
+input {
+    text-transform:uppercase
+}
+
+.lower-input {
+    text-transform: lowercase
+}
+

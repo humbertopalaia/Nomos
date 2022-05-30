@@ -1,0 +1,51 @@
+﻿textarea {
+    resize: none;
+    text-transform: uppercase
+}
+
+
+.form-link-input {
+    /* This bit sets up the horizontal layout */
+    display: flex;
+    flex-direction: row;
+    /* This bit draws the box around it */
+    /*border: 1px solid grey;*/
+    /* I've used padding so you can see the edges of the elements. */
+    padding: 2px;
+}
+
+.link-input {
+    /* Tell the input to use all the available space */
+    flex-grow: 2;
+    /* And hide the input's outline, so the form looks like the outline */
+}
+
+input:focus {
+    outline: none;
+}
+
+.link-input-button {
+    /* Just a little styling to make it pretty */
+    padding-top: 5px;
+    border: 1px solid #ced4da;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+
+.link-input-button:hover {
+    background-color: yellow;
+}
+
+
+
+input {
+    text-transform: uppercase
+}
+
+
+
+.lower-input {
+    text-transform: lowercase
+}
+

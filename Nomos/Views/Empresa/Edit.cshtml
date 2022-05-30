@@ -1,0 +1,73 @@
+﻿@model Nomos.Models.Empresa.EmpresaEditViewModel
+
+@{
+    ViewData["Title"] = "Empresa - Edição";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+@section styles{
+    <link rel="Stylesheet" href="@Href("~/css/Empresa/Edit.css")" />
+}
+
+<h3>Empresa</h3>
+<hr />
+<div class="form-group">
+    <div class="row">
+        <div class="col-sm-12">
+            <button id="btn-salvar" onclick="salvarClick()" type="button" class="btn btn-primary" aria-label="Left Align">Salvar <span class="fa fa-save fa-lg" aria-hidden="true"></span></button>
+            <button id="btn-cancelar" onclick="cancelarClick()" type="button" class="btn btn-warning" aria-label="Left Align">Cancelar <span class="fa fa-times fa-lg" aria-hidden="true"></span></button>
+            <button id="btn-excluir" onclick="excluirClick()" type="button" class="btn btn-danger" aria-label="Left Align">Excluir <span class="fa fa-trash fa-lg" aria-hidden="true"></span></button>
+        </div>
+    </div>
+</div>
+<div class="card">
+    <div class="card-body">
+        <div class="form-group">
+
+            <div class="row">
+                <input id="id" type="hidden" value="@Model.Id" />
+                <input id="cliente" type="hidden" value="@Model.Cliente.ToString()"/>
+                <input id="ativo" type="hidden" value="@Model.Ativo.ToString()" />
+
+                <div class="col-sm-3">
+                    <label>Cnpj</label>
+                    <input id="cnpj" class="form-control" type="text" maxlength="14" onkeypress="return isNumber(event)" value="@Model.Cnpj" />
+                </div>
+
+                <div class="col-sm-5">
+                    <label>Razao Social</label>
+                    <input id="razao-social" class="form-control" type="text" maxlength="500" value="@Model.RazaoSocial" />
+                </div>
+                <div class="col-sm-4">
+                    <label>Nome Fantasia</label>
+                    <input id="nome-fantasia" class="form-control" type="text" maxlength="200" value="@Model.NomeFantasia" />
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-12">
+                    <label>E-mail responsável</label>
+                    <input id="email-responsavel" class="form-control lower-input" type="text" maxlength="500"  value="@Model.EmailResponsavel"/>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+<hr />
+<div class="form-group">
+    <div class="row">
+        <div class="col-sm-12">
+            <button id="btn-salvar" onclick="salvarClick()" type="button" class="btn btn-primary" aria-label="Left Align">Salvar <span class="fa fa-save fa-lg" aria-hidden="true"></span></button>
+            <button id="btn-cancelar" onclick="cancelarClick()" type="button" class="btn btn-warning" aria-label="Left Align">Cancelar <span class="fa fa-times fa-lg" aria-hidden="true"></span></button>
+            <button id="btn-excluir" onclick="excluirClick()" type="button" class="btn btn-danger" aria-label="Left Align">Excluir <span class="fa fa-trash fa-lg" aria-hidden="true"></span></button>
+        </div>
+    </div>
+</div>
+<script src="~/js/Empresa/Edit.js"></script>
+
+<script>
+    var urlAtualizar = encodeURI('@Url.Action("Atualizar", "Empresa")');
+    var urlExcluir = encodeURI('@Url.Action("Excluir", "Empresa")');
+</script>

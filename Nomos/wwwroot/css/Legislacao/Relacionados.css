@@ -1,0 +1,27 @@
+﻿.v-center {
+    min-height: 200px;
+    display: flex;
+    justify-content: center;
+    flex-flow: column wrap;
+}
+
+
+.table-responsive {
+    overflow-x: hidden;
+}
+
+
+/*.table-scrollbar {
+    position: relative;
+    height: 200px;    
+    overflow-y:auto;
+}
+
+.table-wrapper-scroll-y {
+    display: block;
+}*/
+
+
+.thead-dark {
+    background-color: #343a40;
+}

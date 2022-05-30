@@ -1,0 +1,29 @@
+﻿@model Nomos.Models.Empresa.EmpresaIndexViewModel
+
+@{
+    ViewData["Title"] = "Empresa";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section styles{
+    @*<link rel="Stylesheet" href="@Href("~/css/Empresa/Index.css")" />*@
+}
+
+<div class="form-group">
+    <div class="row">
+        <div class="col-sm-2">
+            <h3>Empresa</h3>
+        </div>
+        <div class="col-sm-10 text-right">
+            <button id="btn-incluir" onclick="incluirClick()" type="button" class="btn btn-success" aria-label="Left Align"><span class="fa fa-file fa-lg" aria-hidden="true"></span></button>
+        </div>
+    </div>
+</div>
+<hr />
+
+@Html.Partial("~//Views/Empresa/Filter.cshtml", Model.FilterViewModel)
+<div id="resultado">
+    @Html.Partial("~//Views/Empresa/List.cshtml", Model.ListaViewModel)
+</div>
+
+<script src="~/js/Empresa/Index.js"></script>

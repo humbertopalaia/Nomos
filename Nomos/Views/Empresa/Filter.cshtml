@@ -1,0 +1,39 @@
+﻿@model Nomos.Models.Empresa.EmpresaFilterViewModel
+
+<div class="card">
+    <div class="card-body">
+        <div class="form-group">
+
+            <div class="row mt-2">
+                <div class="col-sm-2">
+                    <label>Cnpj</label>
+                    <input id="cnpj" class="form-control" type="text" maxlength="14" />
+                </div>
+
+                <div class="col-sm-4">
+                    <label>Nome Fantasia</label>
+                    <input id="nome-fantasia" class="form-control" type="text" maxlength="200" />
+                </div>
+
+                <div class="col-sm-4">
+                    <label>Razão Social</label>
+                    <input id="razao-social" class="form-control" type="text" maxlength="500" />
+                </div>
+
+                <div class="col-sm-2 text-right">
+                    <br>
+                    <button id="btn-filtrar" onclick="filtrarClick()" type="button" class="btn btn-primary" aria-label="Left Align">Filtrar <span class="fa fa-search fa-lg" aria-hidden="true"></span></button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+<hr />
+
+<script src="~/js/Empresa/Filter.js"></script>
+
+
+<script>
+    var urlFiltrar = encodeURI('@Url.Action("Filtrar", "Empresa")');
+</script>

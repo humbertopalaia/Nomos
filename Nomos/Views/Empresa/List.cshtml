@@ -1,0 +1,59 @@
+﻿@model List<Nomos.Models.Empresa.EmpresaListViewModel>
+
+
+<div class="box">
+    <div class="box-content">
+        @if (Model.Count > 0)
+        {
+        <table id="gridEmpresa" class="table table-bordered table-striped">
+
+            <thead>
+                <tr>
+                    <th hidden>Id</th>
+                    <th>Cnpj</th>
+                    <th>Razao Social</th>
+                    <th></th>
+                    <th></th>
+                </tr>
+            <thead>
+            <tbody>
+                @foreach (var item in Model)
+                    {
+                <tr id="rowId_@item.Id">
+                    <td hidden>@item.Id"</td>
+                    <td>@item.Cnpj</td>
+                    <td>@item.RazaoSocial</td>
+                    <td style="text-align:center"><i class="fa fa-fw fa-edit" style="cursor:pointer" onclick="editarClick(@item.Id)"></i></td>
+                    <td style="text-align:center"><i class="fa fa-fw fa-trash" style="cursor:pointer" onclick="excluirClick(@item.Id)"></i></td>
+                </tr>
+                    }
+            </tbody>
+        </table>
+        }
+        else
+        {
+        <table>
+            <thead>
+                <tr>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td style="color:red">Nenhum registro encontrado</td>
+                </tr>
+            </tbody>
+        </table>
+        }
+
+    </div>
+    <!--end: BOX CONTENT-->
+</div>
+<!--end: BOX-->
+
+<script src="~/js/Empresa/List.js"></script>
+
+
+<script>
+    var urlExcluir = encodeURI('@Url.Action("Excluir", "Empresa")');
+</script>
